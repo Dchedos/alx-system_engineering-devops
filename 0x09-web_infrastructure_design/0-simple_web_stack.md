@@ -1,6 +1,6 @@
 # Simple Web Stack
 
-![Image of a simple web stack](0-simple_web_stack.jpg)
+![Image of a simple web stack] (https://docs.google.com/document/d/1nBSYjtC1KLKvBGi9tbJsALOoBx0dG72m0N56_ZeEMrY/edit?usp=drivesdk)
 
 
 ## Description
