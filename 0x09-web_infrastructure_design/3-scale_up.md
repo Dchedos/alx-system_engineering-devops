@@ -1,5 +1,6 @@
 # Scaled Up Web Infrastructure
 
+![Image of a scaled up web infrastructure](3-scale_up.jpg)
 
 ## Description
 
