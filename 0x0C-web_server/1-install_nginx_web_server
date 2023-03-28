@@ -26,6 +26,6 @@ server {
 EOF'
 
 # Restart nginx
-sudo kill $(sudo lsof -t -i:80)
+sudo kill "$(sudo lsof -t -i:80)"
 sudo nginx -g 'daemon off;'
 
