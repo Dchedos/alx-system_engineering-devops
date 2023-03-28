@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
-
-#!/bin/bash
+# installs nginx and configures it on a remote server
 
 # Update package list
-sudo apt-get update
+apt-get update
 
 # Install Nginx
-sudo apt-get install -y nginx
+apt-get install -y nginx
 
 # Configure Nginx to listen on port 80
-sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
 
 # Set up default page
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # Restart Nginx
-sudo service nginx restart
+service nginx restart
