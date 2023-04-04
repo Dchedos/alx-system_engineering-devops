@@ -13,6 +13,5 @@ sudo apt-get -y install haproxy
 sudo sed -i 's/.*frontend.*$/frontend http-in\n bind *:80\n default_backend servers/g' /etc/haproxy/haproxy.cfg
 sudo sed -i 's/.*backend.*$/backend servers\n balance roundrobin\n server 149607-web-01 52.90.23.6:80 check\n server 149607-web-02 52.207.96.101:80 check/g' /etc/haproxy/haproxy.cfg
 
-# Enable HAproxy as a service
-sudo service haproxy enable
-sudo service haproxy restart
+# Restart haproxy using init script
+sudo /etc/init.d/haproxy restart
