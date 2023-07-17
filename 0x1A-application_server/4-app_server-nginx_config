@@ -1,7 +1,34 @@
-# Configuration setup
-server {                                                  listen 80 default_server;                         listen [::]:80 default_server;                    root /var/www/html;                               index index.html index.htm index.nginx-debian.html;                                                 server_name _;                                    location / {                                              add_header X-Served-By 149607-web-01;                                                               try_files $uri $uri/ =404;                }                                                 location /hbnb_static {                                   add_header X-Served-By 149607-web-01;                                                               alias /data/web_static/current;           }                                                 location /airbnb-onepage/ {                               proxy_pass http://localhost:5000;          }
-        location /airbnb-dynamic/number_odd_or_even/ {                                                              proxy_pass http://localhost:5001/number_odd_or_even/;                                       }                                                 location /api/v1/ {
+#  configure Nginx to serve your page from the route /airbnb-onepage/
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                add_header X-Served-By 149607-web-01;
+		try_files $uri $uri/ =404;
+        }
+
+        location /hbnb_static {
+                add_header X-Served-By 149607-web-01;
+                alias /data/web_static/current;
+        }
+
+        location /airbnb-onepage/ {
+                proxy_pass http://localhost:5000;
+        }
+
+        location /airbnb-dynamic/number_odd_or_even/ {
+                proxy_pass http://localhost:5001/number_odd_or_even/;
+        }
+
+        location /api/v1/ {
                 proxy_pass http://localhost:5002;
-                add_header 'Access-Control-Allow-Origin' '*';
+		add_header 'Access-Control-Allow-Origin' '*';
         }
 }
